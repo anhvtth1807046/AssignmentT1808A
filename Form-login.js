@@ -4,15 +4,18 @@ btnRegister.onclick = function () {
     var name = document.forms["form-register"]["name"];
     var msgName = name.nextElementSibling;
 
-    if (name == null || name.value.length > 50) {
-        msgName.innerHTML = "* vui lòng nhập họ và tên đầy đủ hoac toi da 50 ky tu";
+    if (name == null || name.value.length == 0) {
+        msgName.innerHTML = "* vui lòng nhập họ và tên đầy đủ ";
         msgName.classList.remove("hidden-text");
+    }else if(name.value.length > 50){
+        msgName.innerHTML = "* toi da 50 ky tu";
     } else {
         msgName.innerHTML = " tên hợp  ";
         msgName.classList.remove("hidden-text");
         msgName.classList.remove("danger-text");
         msgName.classList.add("success-text");
     }
+
 
     var phone = document.forms["form-register"]["phone"];
     var msphone = phone.nextElementSibling;
@@ -34,7 +37,7 @@ btnRegister.onclick = function () {
     var email = document.forms["form-register"]["email"];
     var msgemail = email.nextElementSibling;
     var n = email.value.includes("@");
-    if (mail == null || email.value.length == 0) {
+    if (email == null || email.value.length == 0) {
         msgemail.innerHTML = "*vui lòng nhập email";
         msgemail.classList.remove("hidden-text");
     }
